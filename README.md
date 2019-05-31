@@ -1,3 +1,8 @@
+## Description
+
+This project is a website for a resort where users can filter through rooms by type, price, size, amount of guests, and more.
+Live link to deployed site: https://gifted-johnson-a6b1a8.netlify.com
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
