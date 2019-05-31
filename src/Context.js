@@ -28,16 +28,16 @@ export default class RoomProvider extends Component {
   //   Grabs list of rooms on comp mount
   componentDidMount() {
     let rooms = this.formatData(items);
-    // If rooms are featured, show them.
+
     let featuredRooms = rooms.filter(room => room.featured === true);
     let maxPrice = Math.max(...rooms.map(item => item.price));
     let maxSize = Math.max(...rooms.map(item => item.size));
-
     this.setState({
       rooms,
       featuredRooms,
       sortedRooms: rooms,
       loading: false,
+      //
       price: maxPrice,
       maxPrice,
       maxSize
@@ -48,7 +48,6 @@ export default class RoomProvider extends Component {
     let tempItems = items.map(item => {
       let id = item.sys.id;
       let images = item.fields.images.map(image => image.fields.file.url);
-
       let room = { ...item.fields, images, id };
       return room;
     });
