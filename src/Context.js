@@ -63,7 +63,7 @@ export default class RoomProvider extends Component {
 
   handleChange = event => {
     const target = event.target;
-    const value = event.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = event.target.name;
     // Change select option in state and filter rooms based off selected value
     this.setState(
@@ -104,6 +104,21 @@ export default class RoomProvider extends Component {
 
     // Filter by price
     tempRooms = tempRooms.filter(room => room.price <= price);
+
+    // Filter by size
+    tempRooms = tempRooms.filter(
+      room => room.size >= minSize && room.size <= maxSize
+    );
+
+    // Filter by breakfast
+    if (breakfast) {
+      tempRooms = tempRooms.filter(room => room.breakfast === true);
+    }
+
+    // Filter by pets
+    if (pets) {
+      tempRooms = tempRooms.filter(room => room.pets === true);
+    }
 
     // Change state
     this.setState({
